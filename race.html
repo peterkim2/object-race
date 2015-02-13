@@ -1,0 +1,33 @@
+<script>
+  var Animal = function(speed, focus, name) {
+    this.speed = speed;
+    this.focus = focus;
+    this.name = name;
+    this.position = 0;
+    this.report = function() {
+      return this.name + " is at " + this.position;
+    };
+    this.run = function() {
+      if(this.focus > (Math.random() * 10)) {
+        this.position += this.speed;
+      }
+    };
+  }
+
+  var turtle = new Animal(2, 9, "Mike"),
+      rabbit = new Animal(11, 2, "Peter"),
+      shiba = new Animal(3, 8, "Roxy");
+
+  var distance = 40;
+//while neither animal crossed the finish line
+  while(turtle.position < distance && rabbit.position < distance && shiba.position < distance) {
+    turtle.run();
+    rabbit.run();
+    shiba.run();
+  }
+
+  console.log(turtle.report());
+  console.log(rabbit.report());
+  console.log(shiba.report());
+  
+</script>
